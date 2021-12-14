@@ -40,7 +40,23 @@ var Task=["task1","task2","task3"]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "addSegue"{
+        if sender is UIBarButtonItem{
+            let nc=segue.destination as! UINavigationController
+            let addtableVew = nc.topViewController as! addTableViewController
+            addtableVew.delegate=self
+        }else {
+    
+            let nc=segue.destination as! UINavigationController
+            let addtableVew = nc.topViewController as! addTableViewController
+            addtableVew.delegate=self
+            let indexPath = sender as! NSIndexPath
+            let item = Task[indexPath.row]
+            addtableVew.taskItem = item
+            addtableVew.indexPath = indexPath
+            
+        }
+        
+      /*  if segue.identifier == "addSegue"{
             let nc=segue.destination as! UINavigationController
             let addtableVew = nc.topViewController as! addTableViewController
             addtableVew.delegate=self
@@ -53,7 +69,7 @@ var Task=["task1","task2","task3"]
             addtableVew.taskItem = item
             addtableVew.indexPath = indexPath
             
-        }
+        }*/
         
     }
     func cancleButtonPreesed(by controller: addTableViewController ) {

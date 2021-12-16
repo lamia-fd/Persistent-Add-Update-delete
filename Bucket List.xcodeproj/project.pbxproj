@@ -18,6 +18,9 @@
 		5F7C2BAC2768C7FA00802024 /* Bucket_ListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C2BAB2768C7FA00802024 /* Bucket_ListUITestsLaunchTests.swift */; };
 		5F7C2BB92768DA2800802024 /* addTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C2BB82768DA2800802024 /* addTableViewController.swift */; };
 		5F7C2BBD2768E0A100802024 /* addIteamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C2BBC2768E0A100802024 /* addIteamTableViewController.swift */; };
+		5FAF2D30276B848C00429C7C /* TheaddedItems.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FAF2D2E276B848B00429C7C /* TheaddedItems.xcdatamodeld */; };
+		5FAF2D37276B8F6D00429C7C /* TheItems+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAF2D35276B8F6D00429C7C /* TheItems+CoreDataClass.swift */; };
+		5FAF2D38276B8F6D00429C7C /* TheItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAF2D36276B8F6D00429C7C /* TheItems+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		5F7C2BAB2768C7FA00802024 /* Bucket_ListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket_ListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5F7C2BB82768DA2800802024 /* addTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTableViewController.swift; sourceTree = "<group>"; };
 		5F7C2BBC2768E0A100802024 /* addIteamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addIteamTableViewController.swift; sourceTree = "<group>"; };
+		5FAF2D2F276B848C00429C7C /* TheaddedItems.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheaddedItems.xcdatamodel; sourceTree = "<group>"; };
+		5FAF2D35276B8F6D00429C7C /* TheItems+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TheItems+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5FAF2D36276B8F6D00429C7C /* TheItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TheItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,9 @@
 		5F7C2B7C2768C7F200802024 = {
 			isa = PBXGroup;
 			children = (
+				5FAF2D35276B8F6D00429C7C /* TheItems+CoreDataClass.swift */,
+				5FAF2D36276B8F6D00429C7C /* TheItems+CoreDataProperties.swift */,
+				5FAF2D2E276B848B00429C7C /* TheaddedItems.xcdatamodeld */,
 				5F7C2B872768C7F300802024 /* Bucket List */,
 				5F7C2B9E2768C7FA00802024 /* Bucket ListTests */,
 				5F7C2BA82768C7FA00802024 /* Bucket ListUITests */,
@@ -268,7 +277,10 @@
 				5F7C2B892768C7F300802024 /* AppDelegate.swift in Sources */,
 				5F7C2B8B2768C7F300802024 /* SceneDelegate.swift in Sources */,
 				5F7C2BB92768DA2800802024 /* addTableViewController.swift in Sources */,
+				5FAF2D37276B8F6D00429C7C /* TheItems+CoreDataClass.swift in Sources */,
 				5F7C2BBD2768E0A100802024 /* addIteamTableViewController.swift in Sources */,
+				5FAF2D38276B8F6D00429C7C /* TheItems+CoreDataProperties.swift in Sources */,
+				5FAF2D30276B848C00429C7C /* TheaddedItems.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +638,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5FAF2D2E276B848B00429C7C /* TheaddedItems.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5FAF2D2F276B848C00429C7C /* TheaddedItems.xcdatamodel */,
+			);
+			currentVersion = 5FAF2D2F276B848C00429C7C /* TheaddedItems.xcdatamodel */;
+			path = TheaddedItems.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5F7C2B7D2768C7F200802024 /* Project object */;
 }

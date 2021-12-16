@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import CoreData
+
+
+
 
 class bucketListViewController: UITableViewController ,addIteamTableViewController{
-var Task=["task1","task2","task3"]
+    
+var Tasks=[TheItems]()
+    
+    let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("loded")
-        // Do any additional setup after loading the view.
+        fetcAllItem()
+        
+
     }
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Task.count
+        return Tasks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text=Task[indexPath.row]
+        cell.textLabel?.text=Tasks[indexPath.row].text!
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -34,7 +43,17 @@ var Task=["task1","task2","task3"]
         performSegue(withIdentifier: "editSegue", sender:  indexPath)
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        Task.remove(at: indexPath.row)
+        
+        let Task = Tasks[indexPath.row]
+        context.delete(Task)
+        
+        do{
+       try context.save()
+        }catch{
+            print(error)
+        }
+        
+        Tasks.remove(at: indexPath.row)
         tableView.reloadData()
     }
     
@@ -50,8 +69,8 @@ var Task=["task1","task2","task3"]
             let addtableVew = nc.topViewController as! addTableViewController
             addtableVew.delegate=self
             let indexPath = sender as! NSIndexPath
-            let item = Task[indexPath.row]
-            addtableVew.taskItem = item
+            let item = Tasks[indexPath.row]
+            addtableVew.taskItem = item.text
             addtableVew.indexPath = indexPath
             
         }
@@ -75,25 +94,42 @@ var Task=["task1","task2","task3"]
     func cancleButtonPreesed(by controller: addTableViewController ) {
         dismiss(animated: true, completion: nil)
     }
-    func saveItem(by controller: addTableViewController,with text: String , at indexPath:NSIndexPath?) {
+    func saveItem (by controller: addTableViewController,with Text: String , at indexPath:NSIndexPath?) {
         if let ip = indexPath{
-            Task[ip.row] = text
+          //  Task[ip.row] = text with out CourData
+            let Task = Tasks[ip.row]
+            Task.text = Text
             
         }else{
-            Task.append("\(text)")
+            let Task = NSEntityDescription.insertNewObject(forEntityName:"TheItems", into: context) as! TheItems
+            Task.text = Text
+            Tasks.append(Task)
         }
        
+        do{
+       try context.save()
+        }catch{
+            print(error)
+        }
+        
+        
         tableView.reloadData()
        /// print("\(text)")
         dismiss(animated: true, completion: nil)
 
     }
-}
-
-
-
-struct task{
     
-    var taskes=["task1","task2","task3"]
+    func fetcAllItem(){
+        let request=NSFetchRequest<NSFetchRequestResult>(entityName: "TheItems")
+        do{
+        let result = try context.fetch(request)
+        Tasks = result as! [TheItems]
+        }catch{
+            print(error)
+        }
+    }
+    
+    
 }
+
 

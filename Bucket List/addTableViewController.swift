@@ -21,8 +21,8 @@ class addTableViewController: UITableViewController {
     }
     
     @IBAction func saveButt(_ sender: UIBarButtonItem) {
-        let text=textFiled.text!
-        delegate?.saveItem(by: self,with:text,at :indexPath)
+        let Text=textFiled.text!
+        delegate?.saveItem(by: self,with:Text,at :indexPath)
     }
     
     override func viewDidLoad() {
